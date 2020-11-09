@@ -28,10 +28,11 @@ WORKDIR /
 # Setup default environment variables for the server
 ENV STATIONEERS_SERVER_STARTUP_ARGUMENTS "-autostart -nographics -batchmode"
 ENV STATIONEERS_SERVER_NAME "A Docker Server"
-ENV STATIONEERS_WORLD_NAME "docker"
+ENV STATIONEERS_WORLD_NAME "Europa2"
+ENV STATIONEERS_WORLD_TYPE "Europa2"
 ENV STATIONEERS_SERVER_SAVE_INTERVAL "300"
 ENV STATIONEERS_GAME_PORT "27500"
-ENV STATIONEERS_QUERY_PORT "27015"
+ENV STATIONEERS_QUERY_PORT "27016"
 ENV STATIONEERS_SERVER_PASSWORD ""
 
 # Run as a non-root user by default
@@ -41,7 +42,7 @@ ENV PUID 1000
 # Expose necessary ports
 EXPOSE 27500/tcp
 EXPOSE 27500/udp
-EXPOSE 27015/udp
+EXPOSE 27016/udp
 
 # Define directories to take ownership of
 ENV CHOWN_DIRS "/app,/steamcmd"
