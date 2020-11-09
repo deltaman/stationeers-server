@@ -16,7 +16,8 @@ The following environment variables are available:
 ```
 STATIONEERS_SERVER_STARTUP_ARGUMENTS (DEFAULT: "-autostart -nographics -batchmode" - Default startup arguments)
 STATIONEERS_SERVER_NAME (DEFAULT: "A Docker Server" - Publicly visible server name)
-STATIONEERS_WORLD_NAME  (DEFAULT: "docker" - World name, mainly used for save names etc.)
+STATIONEERS_WORLD_TYPE  (DEFAULT: "Europa2" - World type, mainly used for world type to start a new game)
+STATIONEERS_WORLD_NAME  (DEFAULT: "Europa2" - World name, mainly used for save names etc.)
 STATIONEERS_SERVER_SAVE_INTERVAL (DEFAULT: "300" - Automatic save interval in seconds)
 STATIONEERS_GAME_PORT (DEFAULT: "27500" - Used for both incoming client connections (UDP) and the web-interface (TCP))
 STATIONEERS_QUERY_PORT (DEFAULT: "27015" - Steam query port (UDP))
