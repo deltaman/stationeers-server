@@ -20,7 +20,7 @@ STATIONEERS_WORLD_TYPE  (DEFAULT: "Europa2" - World type, mainly used for world 
 STATIONEERS_WORLD_NAME  (DEFAULT: "Europa2" - World name, mainly used for save names etc.)
 STATIONEERS_SERVER_SAVE_INTERVAL (DEFAULT: "300" - Automatic save interval in seconds)
 STATIONEERS_GAME_PORT (DEFAULT: "27500" - Used for both incoming client connections (UDP) and the web-interface (TCP))
-STATIONEERS_QUERY_PORT (DEFAULT: "27015" - Steam query port (UDP))
+STATIONEERS_QUERY_PORT (DEFAULT: "27016" - Steam query port (UDP))
 STATIONEERS_SERVER_PASSWORD (DEFAULT: "" - Server password)
 ```
 
