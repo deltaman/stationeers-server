@@ -95,6 +95,7 @@ echo ""
 echo "Starting Stationeers with arguments: ${STATIONEERS_STARTUP_COMMAND}"
 echo ""
 ./rocketstation_DedicatedServer.x86_64 \
+  -logfile /steamcmd/stationeers/dedi_logging.txt \
   ${STATIONEERS_STARTUP_COMMAND} \
   2>&1 &
 # ./rocketstation_DedicatedServer.x86_64 \
