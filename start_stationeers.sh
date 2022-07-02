@@ -87,7 +87,6 @@ fi
 #	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} -password=${STATIONEERS_SERVER_PASSWORD}"
 #fi
 
--settings ServerName "My Cool Game" StartLocalHost true ServerVisible true GamePort 27016 AutoSave true SaveInterval 300 ServerPassword abc123 ServerMaxPlayers 13 UPNPEnabled true
 # Set the working directory
 cd /steamcmd/stationeers || exit
 
