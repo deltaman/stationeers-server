@@ -82,10 +82,10 @@ if [ ! -z ${STATIONEERS_SERVER_NAME+x} ]; then
 	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} servername \"${STATIONEERS_SERVER_NAME}\""
 fi
 
-## Set the server password
-#if [ ! -z ${STATIONEERS_SERVER_PASSWORD+x} ]; then
-#	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} -password=${STATIONEERS_SERVER_PASSWORD}"
-#fi
+# Set the server password
+if [ ! -z ${STATIONEERS_SERVER_PASSWORD+x} ]; then
+	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} ServerPassword ${STATIONEERS_SERVER_PASSWORD}"
+fi
 
 # Set the working directory
 cd /steamcmd/stationeers || exit
