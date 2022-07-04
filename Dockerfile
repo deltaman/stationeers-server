@@ -26,8 +26,8 @@ ADD start_stationeers.sh /app/start.sh
 WORKDIR /
 
 
-# More info about the new syntax for running the server from the developer:
-https://github.com/rocket2guns/StationeersDedicatedServerGuide
+## More info about the new syntax for running the server from the developer:
+# https://github.com/rocket2guns/StationeersDedicatedServerGuide
 
 # Setup default environment variables for the server
 ENV STATIONEERS_SERVER_STARTUP_ARGUMENTS "-loadlatest "Mars" mars -settings StartLocalHost true GamePort 27815 UpdatePort 27816 AutoSave true ServerVisible true ServerMaxPlayers 13"
