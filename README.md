@@ -19,13 +19,13 @@ STATIONEERS_SERVER_NAME (DEFAULT: "A Docker Server" - Publicly visible server na
 STATIONEERS_WORLD_TYPE  (DEFAULT: "Mars" - World type, mainly used for world type to start a new game)
 STATIONEERS_WORLD_NAME  (DEFAULT: "Mars" - World name, mainly used for save names etc.)
 STATIONEERS_SERVER_SAVE_INTERVAL (DEFAULT: "300" - Automatic save interval in seconds)
-STATIONEERS_GAME_PORT (DEFAULT: "27815" - Used for both incoming client connections (UDP) and the web-interface (TCP))
+STATIONEERS_GAME_PORT (DEFAULT: "27500" - Used for both incoming client connections (UDP) and the web-interface (TCP))
 STATIONEERS_SERVER_PASSWORD (DEFAULT: "" - Server password)
 ```
 
 ## Administering the server
 
-Stationeers comes with a built-in web-interface for RCON, which can be accessed at http://your-server-ip:27815.
+Stationeers comes with a built-in web-interface for RCON, which can be accessed at http://your-server-ip:27500.
 
 You should definitely set/change the RCON password for this (default password is `stationeers`, which is found in `default.ini`).
 
