@@ -58,9 +58,9 @@ if [ ! -z ${STATIONEERS_GAME_PORT+x} ]; then
 fi
 
 # Set the query/update port
-#if [ ! -z ${STATIONEERS_QUERY_PORT+x} ]; then
-#	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} updateport ${STATIONEERS_QUERY_PORT}"
-#fi
+if [ ! -z ${STATIONEERS_QUERY_PORT+x} ]; then
+	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} updateport ${STATIONEERS_QUERY_PORT}"
+fi
 
 # Set the world name
 #if [ ! -z ${STATIONEERS_WORLD_NAME+x} ]; then
@@ -98,15 +98,7 @@ echo ""
   -logfile /steamcmd/stationeers/dedi_logging.txt \
   ${STATIONEERS_STARTUP_COMMAND} \
   2>&1 &
-# ./rocketstation_DedicatedServer.x86_64 \
-# 	${STATIONEERS_SERVER_STARTUP_ARGUMENTS} \
-# 	-gameport=${STATIONEERS_GAME_PORT} \
-# 	-updateport=${STATIONEERS_QUERY_PORT} \
-# 	-worldname=${STATIONEERS_WORLD_NAME} \
-# 	-loadworld=${STATIONEERS_WORLD_NAME} \
-# 	-autosaveinterval=${STATIONEERS_SERVER_SAVE_INTERVAL} \
-# 	-servername "${STATIONEERS_SERVER_NAME}" \
-# 	2>&1 &
+
 
 child=$!
 wait "$child"
