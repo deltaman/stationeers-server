@@ -99,6 +99,5 @@ echo ""
   ${STATIONEERS_STARTUP_COMMAND} \
   2>&1 &
 
-
 child=$!
 wait "$child"
