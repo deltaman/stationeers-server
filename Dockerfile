@@ -25,7 +25,6 @@ ADD start_stationeers.sh /app/start.sh
 # Set the current working directory
 WORKDIR /
 
-
 ## More info about the new syntax for running the server from the developer:
 # https://github.com/rocket2guns/StationeersDedicatedServerGuide
 
