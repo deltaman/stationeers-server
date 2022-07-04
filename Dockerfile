@@ -26,7 +26,7 @@ ADD start_stationeers.sh /app/start.sh
 WORKDIR /
 
 # Setup default environment variables for the server
-ENV STATIONEERS_SERVER_STARTUP_ARGUMENTS "-loadlatest Mars -settings StartLocalHost true GamePort 27815 UpdatePort 27816 AutoSave true ServerVisible true ServerMaxPlayers 13"
+ENV STATIONEERS_SERVER_STARTUP_ARGUMENTS "-loadlatest "Mars" mars -settings StartLocalHost true GamePort 27815 UpdatePort 27816 AutoSave true ServerVisible true ServerMaxPlayers 13"
 ENV STATIONEERS_SERVER_NAME "Drebbel Server"
 ENV STATIONEERS_WORLD_NAME "Europa2"
 ENV STATIONEERS_WORLD_TYPE "Europa2"
