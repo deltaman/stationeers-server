@@ -1,7 +1,8 @@
 
-FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
+#FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
+#LABEL maintainer="Didstopia <support@didstopia.com>"
 
-LABEL maintainer="Didstopia <support@didstopia.com>"
+FROM ubuntu:20.04
 
 # Fixes apt-get warnings
 ARG DEBIAN_FRONTEND=noninteractive
