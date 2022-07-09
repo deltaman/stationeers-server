@@ -6,21 +6,27 @@ LABEL maintainer="Deltaman <noc@as202418.net>"
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
-RUN add-apt-repository multiverse && \
-    dpkg --add-architecture i386 && \
-    echo steam steam/question select "I AGREE" | sudo debconf-set-selections && \
-    echo steam steam/license note '' | sudo debconf-set-selections && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends \
-        steamcmd \
+RUN dpkg --add-architecture i386
+#    echo steam steam/question select "I AGREE" | debconf-set-selections && \
+#    echo steam steam/license note '' | debconf-set-selections && \
+RUN    apt update && \
+       apt install -y --no-install-recommends \
+        curl \
+#       steamcmd \
         lib32gcc1 \
         libstdc++6 \
         libsdl2-2.0-0:i386 \
-        libcurl4-openssl-dev:i386 && \
-    ln -sf /usr/games/steamcmd /usr/local/bin/steamcmd && \
+        libc6-i386 \
+        libcurl4
+#        libcurl4-gnutls-dev:i386 \
+#        libcurl4-openssl-dev:i386
+
+RUN ln -sf /usr/games/steamcmd /usr/local/bin/steamcmd && \
     ls -la /usr/lib/*/libcurl.so* && \
     ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so && \
     ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so.3 && \
+    cd ~ && \
+    ln -s /usr/games/steamcmd steamcmd && \
     apt-get clean && \
     rm -rf \
         /var/lib/apt/lists/* \
