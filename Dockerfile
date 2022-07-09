@@ -2,17 +2,34 @@
 #FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
 #LABEL maintainer="Didstopia <support@didstopia.com>"
 
-FROM ubuntu:20.04
+FROM ubuntu:21.10
+LABEL maintainer="Deltaman <noc@as202418.net>"
 
 # Fixes apt-get warnings
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
-RUN apt-get update && \
+RUN add-apt-repository multiverse && \
+    dpkg --add-architecture i386 && \
+    echo steam steam/question select "I AGREE" | sudo debconf-set-selections && \
+    echo steam steam/license note '' | sudo debconf-set-selections && \
+    apt-get update && \
     apt-get install -y --no-install-recommends \
+        steamcmd \
+        lib32gcc1 \
+        libstdc++6 \
         libsdl2-2.0-0:i386 \
-        net-tools && \
-	rm -rf /var/lib/apt/lists/*
+        libcurl4-openssl-dev:i386 && \
+    ln -sf /usr/games/steamcmd /usr/local/bin/steamcmd && \
+    ls -la /usr/lib/*/libcurl.so* && \
+    ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so && \
+    ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so.3 && \
+    apt-get clean && \
+    rm -rf \
+        /var/lib/apt/lists/* \
+        /var/tmp/* \
+        /tmp/dumps \
+        /tmp/*
 
 # Create and set the steamcmd folder as a volume
 RUN mkdir -p /steamcmd/stationeers
