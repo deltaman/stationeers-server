@@ -57,6 +57,13 @@ ENV STATIONEERS_GAME_PORT "27500"
 ENV STATIONEERS_QUERY_PORT "27501"
 #ENV STATIONEERS_SERVER_PASSWORD ""
 
+# Install steamcmd and verify that it is working
+RUN mkdir -p /steamcmd && \
+    curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz \
+    | tar -v -C /steamcmd -zx && \
+    chmod +x /steamcmd/steamcmd.sh && \
+    /steamcmd/steamcmd.sh +login anonymous +quit
+
 # Run as a non-root user by default
 ENV PGID 1000
 ENV PUID 1000
