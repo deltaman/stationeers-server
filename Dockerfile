@@ -1,8 +1,5 @@
-
-#FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
+FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
 #LABEL maintainer="Didstopia <support@didstopia.com>"
-
-FROM ubuntu:21.10
 LABEL maintainer="Deltaman <noc@as202418.net>"
 
 # Fixes apt-get warnings
