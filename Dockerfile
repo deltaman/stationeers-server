@@ -1,4 +1,5 @@
 FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
+
 #LABEL maintainer="Didstopia <support@didstopia.com>"
 LABEL maintainer="Deltaman <noc@as202418.net>"
 
@@ -50,15 +51,15 @@ WORKDIR /
 # https://github.com/rocket2guns/StationeersDedicatedServerGuide
 
 # Setup default environment variables for the server
-#GamePort 27815 UpdatePort 27816 
 ENV STATIONEERS_SERVER_STARTUP_ARGUMENTS "-loadlatest "Mars" mars -settings StartLocalHost true AutoSave true ServerVisible true ServerMaxPlayers 20 UPNPEnabled false"
 #ENV STATIONEERS_SERVER_NAME "Drebbel Server"
 ENV STATIONEERS_WORLD_NAME "Mars"
 ENV STATIONEERS_WORLD_TYPE "mars"
 ENV STATIONEERS_SERVER_SAVE_INTERVAL "300"
 ENV STATIONEERS_GAME_PORT "27500"
-ENV STATIONEERS_QUERY_PORT "27501"
+#ENV STATIONEERS_QUERY_PORT "27501"
 #ENV STATIONEERS_SERVER_PASSWORD ""
+#ENV STATIONEERS_ADMIN_PASSWORD ""
 
 # Install steamcmd and verify that it is working
 RUN mkdir -p /steamcmd && \
