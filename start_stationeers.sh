@@ -13,16 +13,16 @@ echo "Running as user: $(whoami)"
 # Define the exit handler
 exit_handler()
 {
-	echo ""
-	echo "Waiting for server to shutdown.."
-	echo ""
-	kill -SIGINT "$child"
-	sleep 5
+        echo ""
+        echo "Waiting for server to shutdown.."
+        echo ""
+        kill -SIGINT "$child"
+        sleep 5
 
-	echo ""
-	echo "Terminating.."
-	echo ""
-	exit
+        echo ""
+        echo "Terminating.."
+        echo ""
+        exit
 }
 
 # Trap specific signals and forward to the exit handler
@@ -36,17 +36,17 @@ curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -v -
 
 # Check that Stationeers exists in the first place
 if [ ! -f "/steamcmd/stationeers/rocketstation_DedicatedServer.x86_64" ]; then
-	# Install Stationeers from install.txt
-	echo ""
-	echo "Installing Stationeers.."
-	echo ""
-	bash /steamcmd/steamcmd.sh +runscript /app/install.txt
+        # Install Stationeers from install.txt
+        echo ""
+        echo "Installing Stationeers.."
+        echo ""
+        bash /steamcmd/steamcmd.sh +runscript /app/install.txt
 else
-	# Install Stationeers from install.txt
-	echo ""
-	echo "Updating Stationeers.."
-	echo ""
-	bash /steamcmd/steamcmd.sh +runscript /app/install.txt
+        # Install Stationeers from install.txt
+        echo ""
+        echo "Updating Stationeers.."
+        echo ""
+        bash /steamcmd/steamcmd.sh +runscript /app/install.txt
 fi
 
 # Remove extra whitespace from startup command
@@ -54,37 +54,42 @@ STATIONEERS_STARTUP_COMMAND=$(echo "$STATIONEERS_SERVER_STARTUP_ARGUMENTS" | tr 
 
 # Set the game port
 if [ ! -z ${STATIONEERS_GAME_PORT+x} ]; then
-	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} GamePort ${STATIONEERS_GAME_PORT}"
+        STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} GamePort ${STATIONEERS_GAME_PORT}"
 fi
 
 # Set the query/update port
 #if [ ! -z ${STATIONEERS_QUERY_PORT+x} ]; then
-#	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} updateport ${STATIONEERS_QUERY_PORT}"
+#       STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} updateport ${STATIONEERS_QUERY_PORT}"
 #fi
 
 # Set the world name
 #if [ ! -z ${STATIONEERS_WORLD_NAME+x} ]; then
-#	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} worldname=${STATIONEERS_WORLD_NAME} -loadworld=${STATIONEERS_WORLD_NAME}"
+#       STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} worldname=${STATIONEERS_WORLD_NAME} -loadworld=${STATIONEERS_WORLD_NAME}"
 #fi
 
 # Set the world type
 #if [ ! -z ${STATIONEERS_WORLD_TYPE+x} ]; then
-#	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} worldtype=${STATIONEERS_WORLD_TYPE}"
+#       STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} ${STATIONEERS_WORLD_TYPE}"
 #fi
 
 # Set the auto-save interval
 if [ ! -z ${STATIONEERS_SERVER_SAVE_INTERVAL+x} ]; then
-	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} SaveInterval ${STATIONEERS_SERVER_SAVE_INTERVAL}"
+        STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} SaveInterval ${STATIONEERS_SERVER_SAVE_INTERVAL}"
 fi
 
 # Set the server name
 if [ ! -z ${STATIONEERS_SERVER_NAME+x} ]; then
-	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} ServerName ${STATIONEERS_SERVER_NAME}"
+        STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} ServerName ${STATIONEERS_SERVER_NAME}"
 fi
 
 # Set the server password
 if [ ! -z ${STATIONEERS_SERVER_PASSWORD+x} ]; then
-	STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} ServerPassword ${STATIONEERS_SERVER_PASSWORD}"
+        STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} ServerPassword ${STATIONEERS_SERVER_PASSWORD}"
+fi
+
+# Set the server password
+if [ ! -z ${STATIONEERS_ADMIN_PASSWORD+x} ]; then
+        STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} AdminPassword ${STATIONEERS_ADMIN_PASSWORD}"
 fi
 
 # Set the working directory
