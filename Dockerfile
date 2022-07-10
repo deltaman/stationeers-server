@@ -51,7 +51,7 @@ WORKDIR /
 
 # Setup default environment variables for the server
 #GamePort 27815 UpdatePort 27816 
-ENV STATIONEERS_SERVER_STARTUP_ARGUMENTS "-loadlatest "Mars" mars -settings StartLocalHost true GamePort 27500 AutoSave true ServerVisible true ServerMaxPlayers 20 UPNPEnabled false"
+ENV STATIONEERS_SERVER_STARTUP_ARGUMENTS "-loadlatest "Mars" mars -settings StartLocalHost true AutoSave true ServerVisible true ServerMaxPlayers 20 UPNPEnabled false"
 #ENV STATIONEERS_SERVER_NAME "Drebbel Server"
 ENV STATIONEERS_WORLD_NAME "Mars"
 ENV STATIONEERS_WORLD_TYPE "mars"
