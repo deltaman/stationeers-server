@@ -1,4 +1,5 @@
-FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
+#FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
+FROM FROM steamcmd/steamcmd:latest
 
 #LABEL maintainer="Didstopia <support@didstopia.com>"
 LABEL maintainer="Deltaman <noc@as202418.net>"
