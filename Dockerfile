@@ -1,7 +1,7 @@
 #FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
 #FROM steamcmd/steamcmd:latest
-FROM ghcr.io/goover/steamcmd:ubuntu
-
+#FROM ghcr.io/goover/steamcmd:ubuntu
+FROM amd64/debian:stable-20230109-slim
 
 #LABEL maintainer="Didstopia <support@didstopia.com>"
 LABEL maintainer="Deltaman <noc@as202418.net>"
@@ -19,7 +19,7 @@ RUN    apt update && \
 #       steamcmd \
         lib32gcc1 \
         libstdc++6 \
-        libsdl2-2.0-0:i386 \
+#        libsdl2-2.0-0:i386 \
         libc6-i386 \
         libcurl4
 #        libcurl4-gnutls-dev:i386 \
@@ -27,8 +27,8 @@ RUN    apt update && \
 
 RUN ln -sf /usr/games/steamcmd /usr/local/bin/steamcmd && \
     ls -la /usr/lib/*/libcurl.so* && \
-    ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so && \
-    ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so.3 && \
+#    ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so && \
+#    ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so.3 && \
     cd ~ && \
     ln -s /usr/games/steamcmd steamcmd && \
     apt-get clean && \
