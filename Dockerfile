@@ -14,9 +14,11 @@ ARG DEBIAN_FRONTEND="noninteractive"
 RUN    apt-get update -y --no-install-recommends
 
 RUN apt-get install -y --no-install-recommends \
-        lib32gcc-s1=10.2.1-6 \
+#        lib32gcc-s1=10.2.1-6 \
+        lib32gcc-s1 \
         apt-utils \
-        ca-certificates=20210119
+#        ca-certificates=20210119
+        ca-certificates
 
 RUN     apt-get install -y --no-install-recommends \
         curl \
