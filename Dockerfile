@@ -1,31 +1,27 @@
-#FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
-#FROM steamcmd/steamcmd:latest
-#FROM ghcr.io/goover/steamcmd:ubuntu
 FROM amd64/debian:stable-20230109-slim
 
 #LABEL maintainer="Didstopia <support@didstopia.com>"
 LABEL maintainer="Deltaman <noc@as202418.net>"
 
 # Fixes apt-get warnings
-ARG DEBIAN_FRONTEND=noninteractive
+ARG DEBIAN_FRONTEND="noninteractive"
 
 # Install dependencies
-RUN dpkg --add-architecture i386
+#RUN dpkg --add-architecture i386
 #    echo steam steam/question select "I AGREE" | debconf-set-selections && \
 #    echo steam steam/license note '' | debconf-set-selections && \
-RUN    apt update && \
-       apt install -y --no-install-recommends \
+RUN    apt-get update -y --no-install-recommends
+
+RUN apt-get install -y --no-install-recommends \
+        apt-utils \
+        ca-certificates=20210119
+
+RUN     apt-get install -y --no-install-recommends \
         curl \
-#       steamcmd \
-#        lib32gcc1 \
         lib32gcc-s1=10.2.1-6 \
         libstdc++6 \
-#        libsdl2-2.0-0:i386 \
         libc6-i386 \
-        libcurl4 \
-        ca-certificates=20210119
-#        libcurl4-gnutls-dev:i386 \
-#        libcurl4-openssl-dev:i386
+        libcurl4
 
 RUN ln -sf /usr/games/steamcmd /usr/local/bin/steamcmd && \
     ls -la /usr/lib/*/libcurl.so* && \
@@ -38,8 +34,7 @@ RUN ln -sf /usr/games/steamcmd /usr/local/bin/steamcmd && \
         /var/lib/apt/lists/* \
         /var/tmp/* \
         /tmp/dumps \
-        /tmp/* \
-        /var/cache/apt
+        /tmp/*
 
 # Create and set the steamcmd folder as a volume
 RUN mkdir -p /steamcmd/stationeers
