@@ -1,6 +1,6 @@
-FROM amd64/debian:stable-20230109-slim
+FROM hetsh/steamcmd:20230109-1
+#FROM amd64/debian:stable-20230109-slim
 
-#LABEL maintainer="Didstopia <support@didstopia.com>"
 LABEL maintainer="Deltaman <noc@as202418.net>"
 
 # Fixes apt-get warnings
