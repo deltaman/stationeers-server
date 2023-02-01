@@ -17,11 +17,13 @@ RUN    apt update && \
        apt install -y --no-install-recommends \
         curl \
 #       steamcmd \
-        lib32gcc1 \
+#        lib32gcc1 \
+        lib32gcc-s1=10.2.1-6 \
         libstdc++6 \
 #        libsdl2-2.0-0:i386 \
         libc6-i386 \
-        libcurl4
+        libcurl4 \
+        ca-certificates=20210119
 #        libcurl4-gnutls-dev:i386 \
 #        libcurl4-openssl-dev:i386
 
@@ -36,7 +38,8 @@ RUN ln -sf /usr/games/steamcmd /usr/local/bin/steamcmd && \
         /var/lib/apt/lists/* \
         /var/tmp/* \
         /tmp/dumps \
-        /tmp/*
+        /tmp/* \
+        /var/cache/apt
 
 # Create and set the steamcmd folder as a volume
 RUN mkdir -p /steamcmd/stationeers
