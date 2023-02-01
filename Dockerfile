@@ -1,4 +1,5 @@
-FROM steamcmd/steamcmd:latest
+FROM amd64/debian:bookworm-20230109-slim
+#FROM steamcmd/steamcmd:latest
 #FROM hetsh/steamcmd:20230109-1
 #FROM amd64/debian:stable-20230109-slim
 
@@ -14,26 +15,23 @@ ARG DEBIAN_FRONTEND="noninteractive"
 RUN    apt-get update -y --no-install-recommends
 
 RUN apt-get install -y --no-install-recommends \
-#        lib32gcc-s1=10.2.1-6 \
         lib32gcc-s1 \
         apt-utils \
-#        ca-certificates=20210119
         ca-certificates
 
 RUN     apt-get install -y --no-install-recommends \
         curl \
-#        lib32gcc-s1=10.2.1-6 \
         libstdc++6 \
         libc6-i386 \
         libcurl4
 
-RUN ln -sf /usr/games/steamcmd /usr/local/bin/steamcmd && \
-    ls -la /usr/lib/*/libcurl.so* && \
+#RUN ln -sf /usr/games/steamcmd /usr/local/bin/steamcmd && \
+#    ls -la /usr/lib/*/libcurl.so* && \
 #    ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so && \
 #    ln -sf /usr/lib/i386-linux-gnu/libcurl.so.4 /usr/lib/i386-linux-gnu/libcurl.so.3 && \
-    cd ~ && \
-    ln -s /usr/games/steamcmd steamcmd && \
-    apt-get clean && \
+#    cd ~ && \
+#    ln -s /usr/games/steamcmd steamcmd && \
+RUN    apt-get clean && \
     rm -rf \
         /var/lib/apt/lists/* \
         /var/tmp/* \
