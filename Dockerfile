@@ -1,4 +1,5 @@
-FROM hetsh/steamcmd:20230109-1
+FROM steamcmd/steamcmd:latest
+#FROM hetsh/steamcmd:20230109-1
 #FROM amd64/debian:stable-20230109-slim
 
 LABEL maintainer="Deltaman <noc@as202418.net>"
@@ -13,12 +14,13 @@ ARG DEBIAN_FRONTEND="noninteractive"
 RUN    apt-get update -y --no-install-recommends
 
 RUN apt-get install -y --no-install-recommends \
+        lib32gcc-s1=10.2.1-6 \
         apt-utils \
         ca-certificates=20210119
 
 RUN     apt-get install -y --no-install-recommends \
         curl \
-        lib32gcc-s1=10.2.1-6 \
+#        lib32gcc-s1=10.2.1-6 \
         libstdc++6 \
         libc6-i386 \
         libcurl4
