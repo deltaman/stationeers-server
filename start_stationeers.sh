@@ -57,10 +57,10 @@ if [ ! -z ${STATIONEERS_GAME_PORT+x} ]; then
         STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} GamePort ${STATIONEERS_GAME_PORT}"
 fi
 
-# Set the query/update port
-#if [ ! -z ${STATIONEERS_QUERY_PORT+x} ]; then
-#       STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} updateport ${STATIONEERS_QUERY_PORT}"
-#fi
+ Set the query/update port
+if [ ! -z ${STATIONEERS_QUERY_PORT+x} ]; then
+       STATIONEERS_STARTUP_COMMAND="${STATIONEERS_STARTUP_COMMAND} updateport ${STATIONEERS_QUERY_PORT}"
+fi
 
 # Set the world name
 #if [ ! -z ${STATIONEERS_WORLD_NAME+x} ]; then
